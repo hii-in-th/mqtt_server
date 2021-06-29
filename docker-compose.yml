@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    ports:
+      - 1883:1883
+      - 8883:8883
+    volumes:
+      - ./data:/mosquitto/data
+      - /var/log/mqtt:/mosquitto/logs
+      - ./config:/mosquitto/config
+    restart: unless-stopped
